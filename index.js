@@ -1,10 +1,13 @@
-const fs=require('fs')
+const fs = require('fs')
+const http = require('http')
 
-const txtInput=fs.readFileSync('./txt/input.txt','utf-8')
-console.log(txtInput);
-
-const txtOutput=`this is new output:${txtInput}`
-console.log(txtOutput);
-
-fs.writeFileSync('./txt/output.txt',txtOutput)
-// P7的代码
+// server
+const server=http.createServer((req, res) => {
+    res.end("hi,this is server")
+})
+server.listen(8080,'127.0.0.1',()=>{
+    console.log("server running");
+})
+console.log("reading files");
+// 127.0.0.1:8080
+// P10
